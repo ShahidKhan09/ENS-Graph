@@ -15,6 +15,17 @@ type Domain @entity {
   events: [DomainEvent!]! @derivedFrom(field: "domain")
 }
 
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  blockHash: Bytes!
+  from: Bytes!
+  to: Bytes
+  value: BigInt!
+  gasPrice: BigInt!
+}
+
 interface DomainEvent {
   id: ID!
   domain: Domain!
@@ -81,10 +92,11 @@ interface RegistrationEvent {
 
 type NameRegistered implements RegistrationEvent @entity {
   id: ID!
+  transaction: Transaction!
   registration: Registration!
   blockNumber: Int!
   transactionID: Bytes!
-  registrant: Account!
+  registrant: Bytes!
   expiryDate: BigInt!
 }
 

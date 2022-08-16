@@ -1,3 +1,5 @@
+import { loadOrCreateTransaction } from "./transactions"
+
 // Import types and APIs from graph-ts
 import {
   BigInt,
@@ -31,6 +33,7 @@ import { Account, Domain, Registration, NameRegistered, NameRenewed, NameTransfe
 var rootNode:ByteArray = byteArrayFromHex("93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae")
 
 export function handleNameRegistered(event: NameRegisteredEvent): void {
+  let transaction = loadOrCreateTransaction(event.transaction, event.block);
   let account = new Account(event.params.owner.toHex())
   account.save()
 
@@ -51,7 +54,7 @@ export function handleNameRegistered(event: NameRegisteredEvent): void {
   registrationEvent.registration = registration.id
   registrationEvent.blockNumber = event.block.number.toI32()
   registrationEvent.transactionID = event.transaction.hash
-  registrationEvent.registrant = account.id
+  registrationEvent.registrant = transaction.from
   registrationEvent.expiryDate = event.params.expires
   registrationEvent.save()
 }
