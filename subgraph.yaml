@@ -8,11 +8,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: ENSRegistry
-    network: ropsten
+    network: rinkeby
     source:
-      address: "0x1e7426a2b72B768bBBC5B2686280aB51196592FB"
+      address: "0x745d5D6425141C2c2F804B725F645A45aD13f17c"
       abi: EnsRegistry
-      startBlock: 12616414
+      startBlock: 11264445
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -36,11 +36,11 @@ dataSources:
           handler: handleNewTTL
   - kind: ethereum/contract
     name: Resolver
-    network: ropsten
+    network: rinkeby
     source:
-      address: "0x02E96820E02eFF10A88eF2e5e4E90b86e3429708"
+      address: "0x62197eEc376D721fC97AB78A5a8812F7e9f7f233"
       abi: Resolver
-      startBlock: 12616417
+      startBlock: 11264454
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -82,11 +82,11 @@ dataSources:
           handler: handleTextChanged
   - kind: ethereum/contract
     name: BaseRegistrar
-    network: ropsten
+    network: rinkeby
     source:
-      address: "0xC36606d59d7570a26B1040c572Adbfd1936a5085"
+      address: "0x04fCB60DA4766bFFA6C9B59ec13B1Aef15a86E0b"
       abi: BaseRegistrar
-      startBlock: 12616418
+      startBlock: 11264446
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -109,11 +109,11 @@ dataSources:
           handler: handleNameTransferred
   - kind: ethereum/contract
     name: EthRegistrarController
-    network: ropsten
+    network: rinkeby
     source:
-      address: "0xc65db5cBB2416AaE42E5e605ED9E18D63816A548"
+      address: "0x96E39633B97d9A716683f354804cf65b6d0D764d"
       abi: EthRegistrarController
-      startBlock: 12616718 
+      startBlock: 11264452 
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
